@@ -1,5 +1,6 @@
 {
   "name": "con-vote-api",
+  "description": "API for con-vote project to fetch and cache data from Airtable",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
