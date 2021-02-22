@@ -24,7 +24,10 @@ const readCache = async () => {
   return fs.readFileSync(dataPath);
 };
 
+const getCacheUpdatedTime = () => fs.statSync(dataPath).mtime.toLocaleString();
+
 module.exports = {
   updateCache,
   readCache,
+  getCacheUpdatedTime,
 };
