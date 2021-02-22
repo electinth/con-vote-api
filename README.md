@@ -20,6 +20,18 @@ AIRTABLE_TABLE_NAME=<airtable_table_name>
 UPDATE_INTERVAL=<cache_update_interval_in_milliseconds>
 ```
 
+3. Add `config.json` for frontend
+
+```json
+{
+  "test": true,
+  "live_vote_url": "http://localhost:3000/data",
+  "test_live_vote_url": "http://localhost:3000/data",
+  "start_live": "2020-11-19T12:00:00+0700",
+  "end_live": "2020-11-19T14:10:00+0700"
+}
+```
+
 3. Start server
 
 - Development mode (with hot reload)
