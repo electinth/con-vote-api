@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "airtable": "^0.10.1",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "polka": "^0.5.2"
   },

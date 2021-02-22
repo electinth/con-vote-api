@@ -1,4 +1,5 @@
 const polka = require("polka");
+const cors = require("cors");
 const { readCache, getCacheUpdatedTime } = require("./cache");
 const { readConfigFile } = require("./config");
 
@@ -8,6 +9,7 @@ const { PORT } = process.env;
 
 const startServer = () => {
   polka()
+    .use(cors({ origin: true }))
     .get("/", (reg, res) => {
       res.end(
         `Con Vote API is running, last updated on ${getCacheUpdatedTime()}`
