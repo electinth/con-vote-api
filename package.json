@@ -1,0 +1,18 @@
+{
+  "name": "con-vote-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "serve": "node src/index.js"
+  },
+  "dependencies": {
+    "airtable": "^0.10.1",
+    "dotenv": "^8.2.0",
+    "polka": "^0.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
