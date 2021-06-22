@@ -1,4 +1,4 @@
-import polka from 'polka';
+import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
 import { readCache, getCacheUpdatedTime } from './cache';
@@ -9,32 +9,31 @@ config();
 const { PORT } = process.env;
 
 export const startServer = () => {
-  polka()
-    .use(cors({ origin: true }))
-    .get('/', (reg, res) => {
-      res.end(
-        `Con Vote API is running, last updated on ${getCacheUpdatedTime()}`
+  express()
+    .use(cors())
+    .get('/', (req, res) => {
+      res.send(
+        `Convote API is running, last updated on ${getCacheUpdatedTime()}`
       );
     })
     .get('/data', async (req, res) => {
       try {
-        res.end(await readCache());
+        res.send(await readCache());
       } catch (error) {
         console.log(error);
         res.statusCode = 500;
-        res.end(error);
+        res.send(error);
       }
-    })
-    .listen(PORT, (err) => {
-      if (err) throw err;
-      console.info(`> API Server running on port ${PORT}`);
     })
     .get('/config', (req, res) => {
       try {
-        res.end(readConfigFile());
+        res.send(readConfigFile());
       } catch (error) {
         res.statusCode = 500;
-        res.end(error);
+        res.send(error);
       }
+    })
+    .listen(PORT, () => {
+      console.info(`> API Server running on port ${PORT}`);
     });
 };

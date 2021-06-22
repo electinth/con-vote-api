@@ -1,7 +1,8 @@
-const { updateCache } = require("./cache");
-const { startServer } = require("./server");
+import { config } from 'dotenv';
+import { updateCache } from './cache';
+import { startServer } from './server';
 
-require("dotenv").config();
+config();
 
 const { UPDATE_INTERVAL } = process.env;
 
@@ -22,7 +23,7 @@ const main = async () => {
 
   startServer();
 
-  setInterval(reloadData, +UPDATE_INTERVAL);
+  setInterval(reloadData, +(UPDATE_INTERVAL || 60000));
 };
 
 main();
