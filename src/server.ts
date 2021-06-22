@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
 import { readCache, getCacheUpdatedTime } from './cache';
-import { readConfigFile } from './config';
+import configFile from './config.json';
 
 config();
 
@@ -25,9 +25,17 @@ export const startServer = () => {
         res.send(error);
       }
     })
-    .get('/config', (req, res) => {
+    .get('/config/runtime', (req, res) => {
       try {
-        res.send(readConfigFile());
+        res.send(configFile.runtime);
+      } catch (error) {
+        res.statusCode = 500;
+        res.send(error);
+      }
+    })
+    .get('/config/build', (req, res) => {
+      try {
+        res.send(configFile.build);
       } catch (error) {
         res.statusCode = 500;
         res.send(error);
