@@ -19,7 +19,6 @@ export const fetchData = async () => {
   const rawData = await base(AIRTABLE_TABLE_NAME)
     .select({
       view: 'Grid view',
-      maxRecords: 10,
     })
     .all();
 
