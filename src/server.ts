@@ -1,10 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import { config } from 'dotenv';
 import { readCache, getCacheUpdatedTime } from './cache';
 import configFile from './config.json';
-
-config();
 
 const { PORT } = process.env;
 

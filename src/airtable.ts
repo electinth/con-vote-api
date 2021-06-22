@@ -1,7 +1,4 @@
 import Airtable from 'airtable';
-import { config } from 'dotenv';
-
-config();
 
 const { AIRTABLE_API_KEY, AIRTABLE_BASE_NAME, AIRTABLE_TABLE_NAME } =
   process.env;

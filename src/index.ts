@@ -1,8 +1,5 @@
-import { config } from 'dotenv';
 import { updateCache } from './cache';
 import { startServer } from './server';
-
-config();
 
 const { UPDATE_INTERVAL } = process.env;
 

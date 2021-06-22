@@ -5,9 +5,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "concurrently \"tsc -w\" \"nodemon ./dist/index.js\"",
+    "dev": "concurrently \"tsc -w\" \"nodemon -r dotenv/config ./dist/index.js\"",
     "build": "tsc",
-    "serve": "node dist/index.js"
+    "start": "node -r dotenv/config dist/index.js"
   },
   "dependencies": {
     "airtable": "^0.10.1",
